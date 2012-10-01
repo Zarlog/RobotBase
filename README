@@ -1,0 +1,9 @@
+Hello. This is a little program for me to practice using a factory pattern.
+I does not do anything except create some "Robots" and print their attributes.
+I am fairly new to C++ so I am sure there are noob mistakes, such as memory
+leaks. As I am using new allover the place and there is not one delete, nor
+an implemented destructor.
+
+If you would like to run just compile and run main.cpp.
+
+ciao. 
