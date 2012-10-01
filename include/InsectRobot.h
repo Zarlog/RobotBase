@@ -37,6 +37,7 @@ class InsectRobot : public Robot
         vector<InsectLeftLeg> leftLegs;
         vector<InsectRightLeg> rightLegs;
         void printLegAttributes();
+        int addUpLegHP();
 };
 
 #endif // INSECTROBOT_H

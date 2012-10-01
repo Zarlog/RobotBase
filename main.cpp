@@ -25,7 +25,6 @@ int main()
 
     try
     {
-        //Robot *mrRoboto = dynamic_cast<WorkerRobot*>(wrkrRobotFac->manufacture(workerPrtFac));
         Robot *mrRoboto = wrkrRobotFac->manufacture(workerPrtFac);
         Robot *sldrRoboto = sldrRobotFac->manufacture(sldrPrtFac);
         Robot *insectRoboto = insectRobotFac->manufacture(insectPartFac);

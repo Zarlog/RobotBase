@@ -86,22 +86,39 @@ void InsectRobot::printRobotAttributes()
 
 void InsectRobot::printLegAttributes()
 {
-    printf("   Right Legs:\n");
+    printf("Right Legs:\n");
     for(int i=0; i<3; i++)
     {
         printf("   HP: %i Speed: %i\n",rightLegs[i].getHP(), rightLegs[i].getSpeed());
     }
 
-    printf("   Left Legs:\n");
+    printf("Left Legs:\n");
     for(int i=0; i<3; i++)
     {
         printf("   HP: %i Speed: %i\n",leftLegs[i].getHP(), leftLegs[i].getSpeed());
     }
 }
 
+int InsectRobot::addUpLegHP()
+{
+    int total = 0;
+    for(int i=0; i<3; i++)
+    {
+        total = total + rightLegs[i].getHP();
+    }
+
+    for(int i=0; i<3; i++)
+    {
+        total = total + leftLegs[i].getHP();
+    }
+
+    return total;
+}
+
 int InsectRobot::getTotalHP()
 {
     return insectHead->getHP() +
            insectAbdomen->getHP() +
-           insectThorax->getHP();
+           insectThorax->getHP()+
+           addUpLegHP();
 }
