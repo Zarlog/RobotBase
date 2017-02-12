@@ -16,14 +16,14 @@ SoldierRobotFactory::~SoldierRobotFactory()
 Robot* SoldierRobotFactory::manufacture(RobotPartFactoryInterface* factory)
 {
     SoldierRobot *sldrRobot = new SoldierRobot();
-    Head *myHead = factory->createHead();
+    std::unique_ptr<Head> myHead = factory->createHead();
     Torso *myTorso = factory->createTorso();
     RightArm *myRArm = factory->createRightArm();
     LeftArm *myLArm = factory->createLeftArm();
     RightLeg *myRLeg = factory->createRightLeg();
     LeftLeg *myLLeg = factory->createLeftLeg();
 
-    sldrRobot->setHead(myHead);
+    sldrRobot->setHead(std::move(myHead));
     sldrRobot->setTorso(myTorso);
     sldrRobot->setRightArm(myRArm);
     sldrRobot->setLeftArm(myLArm);

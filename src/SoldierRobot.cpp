@@ -1,7 +1,8 @@
 #include <SoldierRobot.h>
 #include <iostream>
+#include <memory>
 
-Head *humSldrHead;
+std::unique_ptr<Head> humSldrHead;
 Torso *humSldrTorso;
 RightArm *humSldrRightArm;
 LeftArm *humSldrLeftArm;
@@ -18,9 +19,9 @@ SoldierRobot::~SoldierRobot()
     //dtor
 }
 
-Head* SoldierRobot::getHead()
+std::unique_ptr<Head> SoldierRobot::getHead()
 {
-    return humSldrHead;
+    return std::move(humSldrHead);
 }
 
 Torso* SoldierRobot::getTorso()
@@ -48,9 +49,9 @@ LeftLeg* SoldierRobot::getLeftLeg()
     return humSldrLeftLeg;
 }
 
-void SoldierRobot::setHead(Head *head)
+void SoldierRobot::setHead(std::unique_ptr<Head> head)
 {
-    humSldrHead=head;
+    humSldrHead= std::move(head);
 }
 
 void SoldierRobot::setTorso(Torso *torso)

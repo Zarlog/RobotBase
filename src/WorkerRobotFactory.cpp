@@ -16,14 +16,14 @@ WorkerRobotFactory::~WorkerRobotFactory()
 Robot* WorkerRobotFactory::manufacture(RobotPartFactoryInterface* factory)
 {
     WorkerRobot *wrkrRobot = new WorkerRobot();
-    Head *myHead = factory->createHead();
+    std::unique_ptr<Head> myHead = factory->createHead();
     Torso *myTorso = factory->createTorso();
     RightArm *myRArm = factory->createRightArm();
     LeftArm *myLArm = factory->createLeftArm();
     RightLeg *myRLeg = factory->createRightLeg();
     LeftLeg *myLLeg = factory->createLeftLeg();
 
-    wrkrRobot->setHead(myHead);
+    wrkrRobot->setHead(std::move(myHead));
     wrkrRobot->setTorso(myTorso);
     wrkrRobot->setRightArm(myRArm);
     wrkrRobot->setLeftArm(myLArm);

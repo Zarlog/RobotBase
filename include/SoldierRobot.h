@@ -9,6 +9,7 @@
 #include <RightArm.h>
 #include <RightLeg.h>
 #include <Torso.h>
+#include <memory>
 
 class SoldierRobot : public Robot
 {
@@ -18,14 +19,14 @@ class SoldierRobot : public Robot
         int getTotalHP();
         virtual void printRobotAttributes();
 
-        Head* getHead();
+        std::unique_ptr<Head> getHead();
         Torso* getTorso();
         LeftArm* getLeftArm();
         LeftLeg* getLeftLeg();
         RightArm* getRightArm();
         RightLeg* getRightLeg();
 
-        void setHead(Head *head);
+        void setHead(std::unique_ptr<Head> head);
         void setTorso(Torso *torso);
         void setLeftArm(LeftArm *leftArm);
         void setLeftLeg(LeftLeg *leftLeg);

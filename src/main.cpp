@@ -14,20 +14,20 @@ using namespace std;
 int main()
 {
 
-    WorkerPartFactory *workerPrtFac = new WorkerPartFactory();
-    WorkerRobotFactory *wrkrRobotFac = new WorkerRobotFactory();
+    auto *workerPrtFac = new WorkerPartFactory();
+    auto *wrkrRobotFac = new WorkerRobotFactory();
 
-    SoldierPartFactory *sldrPrtFac = new SoldierPartFactory();
-    SoldierRobotFactory *sldrRobotFac = new SoldierRobotFactory();
+    auto *sldrPrtFac = new SoldierPartFactory();
+    auto *sldrRobotFac = new SoldierRobotFactory();
 
-    InsectRobotFactory *insectRobotFac = new InsectRobotFactory();
-    InsectPartFactory *insectPartFac = new InsectPartFactory();
+    auto *insectRobotFac = new InsectRobotFactory();
+    auto *insectPartFac = new InsectPartFactory();
 
     try
     {
-        Robot *mrRoboto = wrkrRobotFac->manufacture(workerPrtFac);
-        Robot *sldrRoboto = sldrRobotFac->manufacture(sldrPrtFac);
-        Robot *insectRoboto = insectRobotFac->manufacture(insectPartFac);
+        auto *mrRoboto = wrkrRobotFac->manufacture(workerPrtFac);
+        auto *sldrRoboto = sldrRobotFac->manufacture(sldrPrtFac);
+        auto *insectRoboto = insectRobotFac->manufacture(insectPartFac);
 
         printf("WORKER ROBOT\n");
         printf("------------\n");

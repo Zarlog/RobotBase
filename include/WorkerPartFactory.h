@@ -22,7 +22,7 @@ class WorkerPartFactory : public RobotPartFactoryInterface
         WorkerPartFactory();
         virtual ~WorkerPartFactory();
 
-        virtual Head* createHead();
+        virtual std::unique_ptr<Head> createHead();
         virtual Torso* createTorso();
         virtual RightArm* createRightArm();
         virtual RightLeg* createRightLeg();

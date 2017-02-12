@@ -1,4 +1,5 @@
 #include "SoldierPartFactory.h"
+#include <memory>
 
 SoldierPartFactory::SoldierPartFactory()
 {
@@ -10,9 +11,9 @@ SoldierPartFactory::~SoldierPartFactory()
     //dtor
 }
 
-Head* SoldierPartFactory::createHead()
+std::unique_ptr<Head> SoldierPartFactory::createHead()
 {
-    Head *h = new Head();
+    std::unique_ptr<Head> h (new Head());
     h->setHP(SDEFAULT_HP);
     h->setInitiative(SDEFAULT_INITIVE);
     return h;

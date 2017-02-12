@@ -10,12 +10,12 @@ WorkerPartFactory::~WorkerPartFactory()
     //dtor
 }
 
-Head* WorkerPartFactory::createHead()
+std::unique_ptr<Head> WorkerPartFactory::createHead()
 {
-    Head *h = new Head();
+    std::unique_ptr<Head> h (new Head());
     h->setHP(DEFAULT_HP);
     h->setInitiative(DEFAULT_INITIVE);
-    return h;
+    return std::move(h);
 }
 
 Torso* WorkerPartFactory::createTorso()

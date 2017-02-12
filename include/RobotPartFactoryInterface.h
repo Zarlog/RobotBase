@@ -7,13 +7,14 @@
 #include <LeftArm.h>
 #include <RightLeg.h>
 #include <LeftLeg.h>
+#include <memory>
 
 class RobotPartFactoryInterface
 {
     public:
         RobotPartFactoryInterface();
         virtual ~RobotPartFactoryInterface();
-        virtual Head* createHead() = 0;
+        virtual std::unique_ptr<Head> createHead() = 0;
         virtual Torso* createTorso() = 0;
         virtual RightArm* createRightArm() = 0;
         virtual RightLeg* createRightLeg() = 0;

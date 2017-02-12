@@ -1,7 +1,7 @@
 #include "WorkerRobot.h"
 #include <iostream>
 
-Head *humHead;
+std::unique_ptr<Head> humHead;
 Torso *humTorso;
 RightArm *humRightArm;
 LeftArm *humLeftArm;
@@ -18,9 +18,9 @@ WorkerRobot::~WorkerRobot()
     //dtor
 }
 
-Head* WorkerRobot::getHead()
+std::unique_ptr<Head> WorkerRobot::getHead()
 {
-    return humHead;
+    return std::move(humHead);
 }
 
 Torso* WorkerRobot::getTorso()
@@ -48,9 +48,9 @@ LeftLeg* WorkerRobot::getLeftLeg()
     return humLeftLeg;
 }
 
-void WorkerRobot::setHead(Head *head)
+void WorkerRobot::setHead(std::unique_ptr<Head> head)
 {
-    humHead=head;
+    humHead=std::move(head);
 }
 
 void WorkerRobot::setTorso(Torso *torso)

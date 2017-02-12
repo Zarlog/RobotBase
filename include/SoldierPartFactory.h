@@ -22,7 +22,7 @@ class SoldierPartFactory : public RobotPartFactoryInterface
         SoldierPartFactory();
         virtual ~SoldierPartFactory();
 
-        virtual Head* createHead();
+        virtual std::unique_ptr<Head> createHead();
         virtual Torso* createTorso();
         virtual RightArm* createRightArm();
         virtual RightLeg* createRightLeg();
