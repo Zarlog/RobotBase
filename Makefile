@@ -3,10 +3,9 @@ IDIR=include
 # The source directory
 SDIR=src
 # The compiler to use
-CXX=clang++
+CXX=clang++ -std=c++11 -stdlib=libstdc++
 
 FLAGS=-I$(IDIR)
-
 #The directory to put th eobject files
 ODIR=obj
 
@@ -76,7 +75,7 @@ $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	$(CXX) -c -o $@ $< $(FLAGS)
 
 robot: $(OBJ)
-	clang++ -o $@ $^ $(FLAGS)
+	$(CXX) -o $@ $^ $(FLAGS)
 
 .PHONY: clean
 
