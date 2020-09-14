@@ -16,7 +16,7 @@ class RobotPartFactoryInterface
         virtual ~RobotPartFactoryInterface();
         virtual std::unique_ptr<Head> createHead() = 0;
         virtual std::unique_ptr<Torso> createTorso() = 0;
-        virtual RightArm* createRightArm() = 0;
+        virtual std::unique_ptr<RightArm> createRightArm() = 0;
         virtual RightLeg* createRightLeg() = 0;
         virtual LeftArm* createLeftArm() = 0;
         virtual LeftLeg* createLeftLeg() = 0;

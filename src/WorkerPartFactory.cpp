@@ -26,9 +26,9 @@ std::unique_ptr<Torso> WorkerPartFactory::createTorso()
     return t;
 }
 
-RightArm* WorkerPartFactory::createRightArm()
+std::unique_ptr<RightArm> WorkerPartFactory::createRightArm()
 {
-    RightArm *ra = new RightArm();
+    std::unique_ptr<RightArm> ra (new RightArm());
     ra->setHP(DEFAULT_HP);
     ra->setStrength(DEFAULT_STRENGTH);
     return ra;

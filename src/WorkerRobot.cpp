@@ -3,7 +3,7 @@
 
 std::unique_ptr<Head> humHead;
 std::unique_ptr<Torso> humTorso;
-RightArm *humRightArm;
+std::unique_ptr<RightArm> humRightArm;
 LeftArm *humLeftArm;
 RightLeg *humRightLeg;
 LeftLeg *humLeftLeg;
@@ -28,9 +28,9 @@ std::unique_ptr<Torso> WorkerRobot::getTorso()
     return std::move(humTorso);
 }
 
-RightArm* WorkerRobot::getRightArm()
+std::unique_ptr<RightArm> WorkerRobot::getRightArm()
 {
-    return humRightArm;
+    return std::move(humRightArm);
 }
 
 RightLeg* WorkerRobot::getRightLeg()
@@ -68,9 +68,9 @@ void WorkerRobot::setLeftLeg(LeftLeg *leftLeg)
     humLeftLeg=leftLeg;
 }
 
-void WorkerRobot::setRightArm(RightArm *rightArm)
+void WorkerRobot::setRightArm(std::unique_ptr<RightArm> rightArm)
 {
-    humRightArm=rightArm;
+    humRightArm=std::move(rightArm);
 }
 
 void WorkerRobot::setRightLeg(RightLeg *rightLeg)

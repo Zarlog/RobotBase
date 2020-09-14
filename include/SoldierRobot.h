@@ -23,14 +23,14 @@ class SoldierRobot : public Robot
         std::unique_ptr<Torso> getTorso();
         LeftArm* getLeftArm();
         LeftLeg* getLeftLeg();
-        RightArm* getRightArm();
+        std::unique_ptr<RightArm> getRightArm();
         RightLeg* getRightLeg();
 
         void setHead(std::unique_ptr<Head> head);
         void setTorso(std::unique_ptr<Torso> torso);
         void setLeftArm(LeftArm *leftArm);
         void setLeftLeg(LeftLeg *leftLeg);
-        void setRightArm(RightArm *rightArm);
+        void setRightArm(std::unique_ptr<RightArm> rightArm);
         void setRightLeg(RightLeg *rightLeg);
     protected:
     private:
