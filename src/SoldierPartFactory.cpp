@@ -19,9 +19,9 @@ std::unique_ptr<Head> SoldierPartFactory::createHead()
     return h;
 }
 
-Torso* SoldierPartFactory::createTorso()
+std::unique_ptr<Torso> SoldierPartFactory::createTorso()
 {
-    Torso *t = new Torso();
+    std::unique_ptr<Torso> t (new Torso());
     t->setHP(SDEFAULT_HP);
     t->setInventoryCapacity(SDEFAULT_INVENTORY_CAPACITY);
     return t;

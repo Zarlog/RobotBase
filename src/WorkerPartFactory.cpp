@@ -18,9 +18,9 @@ std::unique_ptr<Head> WorkerPartFactory::createHead()
     return std::move(h);
 }
 
-Torso* WorkerPartFactory::createTorso()
+std::unique_ptr<Torso> WorkerPartFactory::createTorso()
 {
-    Torso *t = new Torso();
+    std::unique_ptr<Torso> t (new Torso());
     t->setHP(DEFAULT_HP);
     t->setInventoryCapacity(DEFAULT_INVENTORY_CAPACITY);
     return t;

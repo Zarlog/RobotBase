@@ -20,14 +20,14 @@ class WorkerRobot : public Robot
         virtual void printRobotAttributes();
 
         std::unique_ptr<Head> getHead();
-        Torso* getTorso();
+        std::unique_ptr<Torso> getTorso();
         LeftArm* getLeftArm();
         LeftLeg* getLeftLeg();
         RightArm* getRightArm();
         RightLeg* getRightLeg();
 
         void setHead(std::unique_ptr<Head> head);
-        void setTorso(Torso *torso);
+        void setTorso(std::unique_ptr<Torso> torso);
         void setLeftArm(LeftArm *leftArm);
         void setLeftLeg(LeftLeg *leftLeg);
         void setRightArm(RightArm *rightArm);

@@ -3,7 +3,7 @@
 #include <memory>
 
 std::unique_ptr<Head> humSldrHead;
-Torso *humSldrTorso;
+std::unique_ptr<Torso> humSldrTorso;
 RightArm *humSldrRightArm;
 LeftArm *humSldrLeftArm;
 RightLeg *humSldrRightLeg;
@@ -24,9 +24,9 @@ std::unique_ptr<Head> SoldierRobot::getHead()
     return std::move(humSldrHead);
 }
 
-Torso* SoldierRobot::getTorso()
+std::unique_ptr<Torso> SoldierRobot::getTorso()
 {
-    return humSldrTorso;
+    return std::move(humSldrTorso);
 }
 
 RightArm* SoldierRobot::getRightArm()
@@ -51,12 +51,12 @@ LeftLeg* SoldierRobot::getLeftLeg()
 
 void SoldierRobot::setHead(std::unique_ptr<Head> head)
 {
-    humSldrHead= std::move(head);
+    humSldrHead=std::move(head);
 }
 
-void SoldierRobot::setTorso(Torso *torso)
+void SoldierRobot::setTorso(std::unique_ptr<Torso> torso)
 {
-    humSldrTorso=torso;
+    humSldrTorso=std::move(torso);
 }
 
 void SoldierRobot::setLeftArm(LeftArm *leftArm)
