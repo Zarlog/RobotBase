@@ -4,9 +4,9 @@
 std::unique_ptr<Head> humHead;
 std::unique_ptr<Torso> humTorso;
 std::unique_ptr<RightArm> humRightArm;
-LeftArm *humLeftArm;
-RightLeg *humRightLeg;
-LeftLeg *humLeftLeg;
+std::unique_ptr<LeftArm> humLeftArm;
+std::unique_ptr<RightLeg> humRightLeg;
+std::unique_ptr<LeftLeg> humLeftLeg;
 
 WorkerRobot::WorkerRobot()
 {
@@ -33,19 +33,19 @@ std::unique_ptr<RightArm> WorkerRobot::getRightArm()
     return std::move(humRightArm);
 }
 
-RightLeg* WorkerRobot::getRightLeg()
+std::unique_ptr<RightLeg> WorkerRobot::getRightLeg()
 {
-    return humRightLeg;
+    return std::move(humRightLeg);
 }
 
-LeftArm* WorkerRobot::getLeftArm()
+std::unique_ptr<LeftArm> WorkerRobot::getLeftArm()
 {
-    return humLeftArm;
+    return std::move(humLeftArm);
 }
 
-LeftLeg* WorkerRobot::getLeftLeg()
+std::unique_ptr<LeftLeg> WorkerRobot::getLeftLeg()
 {
-    return humLeftLeg;
+    return std::move(humLeftLeg);
 }
 
 void WorkerRobot::setHead(std::unique_ptr<Head> head)
@@ -58,14 +58,14 @@ void WorkerRobot::setTorso(std::unique_ptr<Torso> torso)
     humTorso=std::move(torso);
 }
 
-void WorkerRobot::setLeftArm(LeftArm *leftArm)
+void WorkerRobot::setLeftArm(std::unique_ptr<LeftArm> leftArm)
 {
-    humLeftArm=leftArm;
+    humLeftArm=std::move(leftArm);
 }
 
-void WorkerRobot::setLeftLeg(LeftLeg *leftLeg)
+void WorkerRobot::setLeftLeg(std::unique_ptr<LeftLeg> leftLeg)
 {
-    humLeftLeg=leftLeg;
+    humLeftLeg=std::move(leftLeg);
 }
 
 void WorkerRobot::setRightArm(std::unique_ptr<RightArm> rightArm)
@@ -73,9 +73,9 @@ void WorkerRobot::setRightArm(std::unique_ptr<RightArm> rightArm)
     humRightArm=std::move(rightArm);
 }
 
-void WorkerRobot::setRightLeg(RightLeg *rightLeg)
+void WorkerRobot::setRightLeg(std::unique_ptr<RightLeg> rightLeg)
 {
-    humRightLeg=rightLeg;
+    humRightLeg=std::move(rightLeg);
 }
 
 int WorkerRobot::totalUpHP()

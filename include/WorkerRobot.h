@@ -21,17 +21,17 @@ class WorkerRobot : public Robot
 
         std::unique_ptr<Head> getHead();
         std::unique_ptr<Torso> getTorso();
-        LeftArm* getLeftArm();
-        LeftLeg* getLeftLeg();
+        std::unique_ptr<LeftArm> getLeftArm();
+        std::unique_ptr<LeftLeg> getLeftLeg();
         std::unique_ptr<RightArm> getRightArm();
-        RightLeg* getRightLeg();
+        std::unique_ptr<RightLeg> getRightLeg();
 
         void setHead(std::unique_ptr<Head> head);
         void setTorso(std::unique_ptr<Torso> torso);
-        void setLeftArm(LeftArm *leftArm);
-        void setLeftLeg(LeftLeg *leftLeg);
+        void setLeftArm(std::unique_ptr<LeftArm> leftArm);
+        void setLeftLeg(std::unique_ptr<LeftLeg> leftLeg);
         void setRightArm(std::unique_ptr<RightArm> rightArm);
-        void setRightLeg(RightLeg *rightLeg);
+        void setRightLeg(std::unique_ptr<RightLeg> rightLeg);
     protected:
     private:
         int totalUpHP();

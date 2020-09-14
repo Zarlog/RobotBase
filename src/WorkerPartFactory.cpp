@@ -34,25 +34,25 @@ std::unique_ptr<RightArm> WorkerPartFactory::createRightArm()
     return ra;
 }
 
-RightLeg* WorkerPartFactory::createRightLeg()
+std::unique_ptr<RightLeg> WorkerPartFactory::createRightLeg()
 {
-    RightLeg *rl = new RightLeg();
+    std::unique_ptr<RightLeg> rl (new RightLeg());
     rl->setHP(DEFAULT_HP);
     rl->setSpeed(DEFAULT_SPEED);
     return rl;
 }
 
-LeftArm* WorkerPartFactory::createLeftArm()
+std::unique_ptr<LeftArm> WorkerPartFactory::createLeftArm()
 {
-    LeftArm *la = new LeftArm();
+    std::unique_ptr<LeftArm> la (new LeftArm());
     la->setHP(DEFAULT_HP);
     la->setStrength(DEFAULT_STRENGTH);
     return la;
 }
 
-LeftLeg* WorkerPartFactory::createLeftLeg()
+std::unique_ptr<LeftLeg> WorkerPartFactory::createLeftLeg()
 {
-    LeftLeg *ll = new LeftLeg();
+    std::unique_ptr<LeftLeg> ll (new LeftLeg());
     ll->setHP(DEFAULT_HP);
     ll->setSpeed(DEFAULT_SPEED);
     return ll;

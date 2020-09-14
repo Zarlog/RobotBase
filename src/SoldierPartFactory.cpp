@@ -35,25 +35,25 @@ std::unique_ptr<RightArm> SoldierPartFactory::createRightArm()
     return ra;
 }
 
-RightLeg* SoldierPartFactory::createRightLeg()
+std::unique_ptr<RightLeg> SoldierPartFactory::createRightLeg()
 {
-    RightLeg *rl = new RightLeg();
+    std::unique_ptr<RightLeg> rl (new RightLeg());
     rl->setHP(SDEFAULT_HP);
     rl->setSpeed(SDEFAULT_SPEED);
     return rl;
 }
 
-LeftArm* SoldierPartFactory::createLeftArm()
+std::unique_ptr<LeftArm> SoldierPartFactory::createLeftArm()
 {
-    LeftArm *la = new LeftArm();
+    std::unique_ptr<LeftArm> la (new LeftArm());
     la->setHP(SDEFAULT_HP);
     la->setStrength(SDEFAULT_STRENGTH);
     return la;
 }
 
-LeftLeg* SoldierPartFactory::createLeftLeg()
+std::unique_ptr<LeftLeg> SoldierPartFactory::createLeftLeg()
 {
-    LeftLeg *ll = new LeftLeg();
+    std::unique_ptr<LeftLeg> ll (new LeftLeg());
     ll->setHP(SDEFAULT_HP);
     ll->setSpeed(SDEFAULT_SPEED);
     return ll;

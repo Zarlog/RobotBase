@@ -25,9 +25,9 @@ class WorkerPartFactory : public RobotPartFactoryInterface
         virtual std::unique_ptr<Head> createHead();
         virtual std::unique_ptr<Torso> createTorso();
         virtual std::unique_ptr<RightArm> createRightArm();
-        virtual RightLeg* createRightLeg();
-        virtual LeftArm* createLeftArm();
-        virtual LeftLeg* createLeftLeg();
+        virtual std::unique_ptr<RightLeg> createRightLeg();
+        virtual std::unique_ptr<LeftArm> createLeftArm();
+        virtual std::unique_ptr<LeftLeg> createLeftLeg();
     protected:
     private:
 };

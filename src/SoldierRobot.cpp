@@ -5,9 +5,9 @@
 std::unique_ptr<Head> humSldrHead;
 std::unique_ptr<Torso> humSldrTorso;
 std::unique_ptr<RightArm> humSldrRightArm;
-LeftArm *humSldrLeftArm;
-RightLeg *humSldrRightLeg;
-LeftLeg *humSldrLeftLeg;
+std::unique_ptr<LeftArm> humSldrLeftArm;
+std::unique_ptr<RightLeg> humSldrRightLeg;
+std::unique_ptr<LeftLeg> humSldrLeftLeg;
 
 SoldierRobot::SoldierRobot()
 {
@@ -34,19 +34,19 @@ std::unique_ptr<RightArm> SoldierRobot::getRightArm()
     return std::move(humSldrRightArm);
 }
 
-RightLeg* SoldierRobot::getRightLeg()
+std::unique_ptr<RightLeg> SoldierRobot::getRightLeg()
 {
-    return humSldrRightLeg;
+    return std::move(humSldrRightLeg);
 }
 
-LeftArm* SoldierRobot::getLeftArm()
+std::unique_ptr<LeftArm> SoldierRobot::getLeftArm()
 {
-    return humSldrLeftArm;
+    return std::move(humSldrLeftArm);
 }
 
-LeftLeg* SoldierRobot::getLeftLeg()
+std::unique_ptr<LeftLeg> SoldierRobot::getLeftLeg()
 {
-    return humSldrLeftLeg;
+    return std::move(humSldrLeftLeg);
 }
 
 void SoldierRobot::setHead(std::unique_ptr<Head> head)
@@ -59,14 +59,14 @@ void SoldierRobot::setTorso(std::unique_ptr<Torso> torso)
     humSldrTorso=std::move(torso);
 }
 
-void SoldierRobot::setLeftArm(LeftArm *leftArm)
+void SoldierRobot::setLeftArm(std::unique_ptr<LeftArm> leftArm)
 {
-    humSldrLeftArm=leftArm;
+    humSldrLeftArm=std::move(leftArm);
 }
 
-void SoldierRobot::setLeftLeg(LeftLeg *leftLeg)
+void SoldierRobot::setLeftLeg(std::unique_ptr<LeftLeg> leftLeg)
 {
-    humSldrLeftLeg=leftLeg;
+    humSldrLeftLeg=std::move(leftLeg);
 }
 
 void SoldierRobot::setRightArm(std::unique_ptr<RightArm> rightArm)
@@ -74,9 +74,9 @@ void SoldierRobot::setRightArm(std::unique_ptr<RightArm> rightArm)
     humSldrRightArm=std::move(rightArm);
 }
 
-void SoldierRobot::setRightLeg(RightLeg *rightLeg)
+void SoldierRobot::setRightLeg(std::unique_ptr<RightLeg> rightLeg)
 {
-    humSldrRightLeg=rightLeg;
+    humSldrRightLeg=std::move(rightLeg);
 }
 
 int SoldierRobot::totalUpHP()

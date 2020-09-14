@@ -19,15 +19,15 @@ Robot* WorkerRobotFactory::manufacture(RobotPartFactoryInterface* factory)
     std::unique_ptr<Head> myHead = factory->createHead();
     std::unique_ptr<Torso> myTorso = factory->createTorso();
     std::unique_ptr<RightArm> myRArm = factory->createRightArm();
-    LeftArm *myLArm = factory->createLeftArm();
-    RightLeg *myRLeg = factory->createRightLeg();
-    LeftLeg *myLLeg = factory->createLeftLeg();
+    std::unique_ptr<LeftArm> myLArm = factory->createLeftArm();
+    std::unique_ptr<RightLeg> myRLeg = factory->createRightLeg();
+    std::unique_ptr<LeftLeg> myLLeg = factory->createLeftLeg();
 
     wrkrRobot->setHead(std::move(myHead));
     wrkrRobot->setTorso(std::move(myTorso));
     wrkrRobot->setRightArm(std::move(myRArm));
-    wrkrRobot->setLeftArm(myLArm);
-    wrkrRobot->setRightLeg(myRLeg);
-    wrkrRobot->setLeftLeg(myLLeg);
+    wrkrRobot->setLeftArm(std::move(myLArm));
+    wrkrRobot->setRightLeg(std::move(myRLeg));
+    wrkrRobot->setLeftLeg(std::move(myLLeg));
     return wrkrRobot;
 }
