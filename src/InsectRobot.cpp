@@ -5,9 +5,9 @@
 #include <Thorax.h>
 #include <Abdomen.h>
 
-InsectHead* insectHead;
-Thorax* insectThorax;
-Abdomen* insectAbdomen;
+std::unique_ptr<InsectHead> insectHead;
+std::unique_ptr<Thorax> insectThorax;
+std::unique_ptr<Abdomen> insectAbdomen;
 InsectLeftLeg leftLegs[3];
 InsectRightLeg RightLeg[3];
 
@@ -21,19 +21,19 @@ InsectRobot::~InsectRobot()
     //dtor
 }
 
-void InsectRobot::setHead(InsectHead *head)
+void InsectRobot::setHead(std::unique_ptr<InsectHead>& head)
 {
-    insectHead = head;
+    insectHead = std::move(head);
 }
 
-void InsectRobot::setThorax(Thorax* thorax)
+void InsectRobot::setThorax(std::unique_ptr<Thorax>& thorax)
 {
-    insectThorax = thorax;
+    insectThorax = std::move(thorax);
 }
 
-void InsectRobot::setAbdomen(Abdomen* abdn)
+void InsectRobot::setAbdomen(std::unique_ptr<Abdomen>& abdn)
 {
-    insectAbdomen = abdn;
+    insectAbdomen = std::move(abdn);
 }
 
 void InsectRobot::setLeftLegs(std::vector<InsectLeftLeg> leftInsectLegs)
@@ -46,19 +46,19 @@ void InsectRobot::setRightLegs(std::vector<InsectRightLeg> rightInsectLegs)
     rightLegs = rightInsectLegs;
 }
 
-InsectHead* InsectRobot::getHead()
+std::unique_ptr<InsectHead> InsectRobot::getHead()
 {
-    return insectHead;
+    return std::move(insectHead);
 }
 
-Thorax* InsectRobot::getThorax()
+std::unique_ptr<Thorax> InsectRobot::getThorax()
 {
-    return insectThorax;
+    return std::move(insectThorax);
 }
 
-Abdomen* InsectRobot::getAbdomen()
+std::unique_ptr<Abdomen> InsectRobot::getAbdomen()
 {
-    return insectAbdomen;
+    return std::move(insectAbdomen);
 }
 
 void InsectRobot::printRobotAttributes()

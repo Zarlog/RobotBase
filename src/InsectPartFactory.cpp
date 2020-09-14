@@ -10,25 +10,25 @@ InsectPartFactory::~InsectPartFactory()
     //dtor
 }
 
-InsectHead* InsectPartFactory::createInsectHead()
+std::unique_ptr<InsectHead> InsectPartFactory::createInsectHead()
 {
-    InsectHead* iHead = new InsectHead();
+    std::unique_ptr<InsectHead> iHead (new InsectHead());
     iHead->setHP(DEFAULT_INSECT_HP);
     iHead->setInitiative(DEFAULT_INSECT_INITIVE);
     return iHead;
 }
 
-Abdomen* InsectPartFactory::createInsectAbdomen()
+std::unique_ptr<Abdomen> InsectPartFactory::createInsectAbdomen()
 {
-    Abdomen* iAbdomen = new Abdomen();
+    std::unique_ptr<Abdomen> iAbdomen (new Abdomen());
     iAbdomen->setHP(DEFAULT_INSECT_HP);
     iAbdomen->setInventoryCapacity(DEFAULT_INSECT_INVENTORY_CAPACITY);
     return iAbdomen;
 }
 
-Thorax* InsectPartFactory::createInsectThorax()
+std::unique_ptr<Thorax> InsectPartFactory::createInsectThorax()
 {
-    Thorax* iThorax = new Thorax();
+    std::unique_ptr<Thorax> iThorax (new Thorax());
     iThorax->setHP(DEFAULT_INSECT_HP);
     return iThorax;
 }

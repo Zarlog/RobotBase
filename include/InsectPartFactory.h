@@ -30,9 +30,9 @@ class InsectPartFactory : public InsectPartFactoryInterface
     public:
         InsectPartFactory();
         virtual ~InsectPartFactory();
-        InsectHead* createInsectHead();
-        Thorax* createInsectThorax();
-        Abdomen* createInsectAbdomen();
+        std::unique_ptr<InsectHead> createInsectHead();
+        std::unique_ptr<Thorax> createInsectThorax();
+        std::unique_ptr<Abdomen> createInsectAbdomen();
         InsectLeftLeg& createInsectLeftLeg();
         InsectRightLeg& createInsectRightLeg();
         std::vector<InsectLeftLeg> createInsectLeftLegs();

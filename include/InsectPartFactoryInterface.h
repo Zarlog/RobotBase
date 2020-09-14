@@ -8,15 +8,16 @@
 #include <InsectLeftLeg.h>
 #include <InsectRightLeg.h>
 #include <vector>
+#include <memory>
 
 class InsectPartFactoryInterface
 {
     public:
         InsectPartFactoryInterface();
         virtual ~InsectPartFactoryInterface();
-        virtual InsectHead* createInsectHead() = 0;
-        virtual Thorax* createInsectThorax() = 0;
-        virtual Abdomen* createInsectAbdomen() = 0;
+        virtual std::unique_ptr<InsectHead> createInsectHead() = 0;
+        virtual std::unique_ptr<Thorax> createInsectThorax() = 0;
+        virtual std::unique_ptr<Abdomen> createInsectAbdomen() = 0;
         virtual std::vector<InsectRightLeg> createInsectRightLegs() = 0;
         virtual std::vector<InsectLeftLeg> createInsectLeftLegs() = 0;
     protected:
