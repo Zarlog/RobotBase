@@ -13,7 +13,7 @@ WorkerRobotFactory::~WorkerRobotFactory()
     //dtor
 }
 
-Robot* WorkerRobotFactory::manufacture(RobotPartFactoryInterface* factory)
+WorkerRobot* WorkerRobotFactory::manufacture(RobotPartFactoryInterface* factory)
 {
     WorkerRobot *wrkrRobot = new WorkerRobot();
     std::unique_ptr<Head> myHead = factory->createHead();

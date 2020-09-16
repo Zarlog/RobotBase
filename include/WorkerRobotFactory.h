@@ -11,7 +11,7 @@ class WorkerRobotFactory : public RobotFactoryInterface
         virtual ~WorkerRobotFactory();
 
         /*RobotFactoryInterface functions*/
-        virtual Robot* manufacture(RobotPartFactoryInterface* factory);
+        virtual WorkerRobot* manufacture(RobotPartFactoryInterface* factory);
 
     protected:
     private:
