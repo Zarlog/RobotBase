@@ -1,7 +1,6 @@
 #ifndef ROBOTFACTORYINTERFACE_H
 #define ROBOTFACTORYINTERFACE_H
 
-#include <RobotFactoryInterface.h>
 #include <RobotPartFactoryInterface.h>
 #include <Robot.h>
 
