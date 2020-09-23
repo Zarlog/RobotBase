@@ -16,7 +16,7 @@ class SoldierRobot : public Robot
     public:
         SoldierRobot();
         virtual ~SoldierRobot();
-        int getTotalHP();
+        virtual int getTotalHP();
         virtual void printRobotAttributes();
 
         std::unique_ptr<Head> getHead();

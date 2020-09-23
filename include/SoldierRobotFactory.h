@@ -2,6 +2,8 @@
 #define SOLDIERROBOTFACTORY_H
 
 #include <RobotFactoryInterface.h>
+#include <RobotPartFactoryInterface.h>
+#include <SoldierRobot.h>
 
 
 class SoldierRobotFactory : public RobotFactoryInterface

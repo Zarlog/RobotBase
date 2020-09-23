@@ -1,7 +1,9 @@
 #ifndef WORKERROBOTFACTORY_H
 #define WORKERROBOTFACTORY_H
 
+#include <RobotPartFactoryInterface.h>
 #include <RobotFactoryInterface.h>
+#include <WorkerRobot.h>
 
 
 class WorkerRobotFactory : public RobotFactoryInterface

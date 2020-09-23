@@ -16,7 +16,7 @@ class WorkerRobot : public Robot
     public:
         WorkerRobot();
         virtual ~WorkerRobot();
-        int getTotalHP();
+        virtual int getTotalHP();
         virtual void printRobotAttributes();
 
         std::unique_ptr<Head> getHead();
