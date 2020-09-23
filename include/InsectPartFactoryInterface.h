@@ -18,8 +18,8 @@ class InsectPartFactoryInterface
         virtual std::unique_ptr<InsectHead> createInsectHead() = 0;
         virtual std::unique_ptr<Thorax> createInsectThorax() = 0;
         virtual std::unique_ptr<Abdomen> createInsectAbdomen() = 0;
-        virtual std::vector<InsectRightLeg> createInsectRightLegs() = 0;
-        virtual std::vector<InsectLeftLeg> createInsectLeftLegs() = 0;
+        virtual std::vector<std::unique_ptr<InsectRightLeg> > createInsectRightLegs() = 0;
+        virtual std::vector<std::unique_ptr<InsectLeftLeg> > createInsectLeftLegs() = 0;
     protected:
     private:
 };

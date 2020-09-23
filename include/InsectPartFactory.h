@@ -33,14 +33,15 @@ class InsectPartFactory : public InsectPartFactoryInterface
         std::unique_ptr<InsectHead> createInsectHead();
         std::unique_ptr<Thorax> createInsectThorax();
         std::unique_ptr<Abdomen> createInsectAbdomen();
-        InsectLeftLeg& createInsectLeftLeg();
-        InsectRightLeg& createInsectRightLeg();
-        std::vector<InsectLeftLeg> createInsectLeftLegs();
-        std::vector<InsectRightLeg> createInsectRightLegs();
+        std::unique_ptr<InsectLeftLeg> createInsectLeftLeg();
+        std::unique_ptr<InsectRightLeg> createInsectRightLeg();
+        // Should these be here? They are really a collection of legs, they should probably be in InsectRobot.
+        std::vector<std::unique_ptr<InsectLeftLeg> > createInsectLeftLegs();
+        std::vector<std::unique_ptr<InsectRightLeg> > createInsectRightLegs();
     protected:
     private:
-        std::vector<InsectLeftLeg> leftLegs;
-        std::vector<InsectRightLeg> rightLegs;
+        //std::vector<InsectLeftLeg> leftLegs;
+        //std::vector<InsectRightLeg> rightLegs;
 };
 
 #endif // INSECTPARTFACTORY_H

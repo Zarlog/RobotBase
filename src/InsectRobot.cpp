@@ -5,11 +5,11 @@
 #include <Thorax.h>
 #include <Abdomen.h>
 
+// TODO: Should these be declaired here? or should they be in the .h file under private?
+// What does it mean when they are declared in the cpp file and not the .h???
 std::unique_ptr<InsectHead> insectHead;
 std::unique_ptr<Thorax> insectThorax;
 std::unique_ptr<Abdomen> insectAbdomen;
-InsectLeftLeg leftLegs[3];
-InsectRightLeg RightLeg[3];
 
 InsectRobot::InsectRobot()
 {
@@ -36,14 +36,16 @@ void InsectRobot::setAbdomen(std::unique_ptr<Abdomen>& abdn)
     insectAbdomen = std::move(abdn);
 }
 
-void InsectRobot::setLeftLegs(std::vector<InsectLeftLeg> leftInsectLegs)
+void InsectRobot::setLeftLegs(std::vector<std::unique_ptr<InsectLeftLeg> > leftInsectLegs)
 {
-    leftLegs = leftInsectLegs;
+    // TODO: Find out why this has to be a move. The vector is not unique but its elements are.
+    // I may be returning a copy, is that appropriate?
+    leftLegs = std::move(leftInsectLegs);
 }
 
-void InsectRobot::setRightLegs(std::vector<InsectRightLeg> rightInsectLegs)
+void InsectRobot::setRightLegs(std::vector<std::unique_ptr<InsectRightLeg> > rightInsectLegs)
 {
-    rightLegs = rightInsectLegs;
+    rightLegs = std::move(rightInsectLegs);
 }
 
 std::unique_ptr<InsectHead> InsectRobot::getHead()
@@ -89,13 +91,13 @@ void InsectRobot::printLegAttributes()
     printf("Right Legs:\n");
     for(int i=0; i<3; i++)
     {
-        printf("   HP: %i Speed: %i\n",rightLegs[i].getHP(), rightLegs[i].getSpeed());
+        printf("   HP: %i Speed: %i\n",rightLegs[i]->getHP(), rightLegs[i]->getSpeed());
     }
 
     printf("Left Legs:\n");
     for(int i=0; i<3; i++)
     {
-        printf("   HP: %i Speed: %i\n",leftLegs[i].getHP(), leftLegs[i].getSpeed());
+        printf("   HP: %i Speed: %i\n",leftLegs[i]->getHP(), leftLegs[i]->getSpeed());
     }
 }
 
@@ -104,12 +106,12 @@ int InsectRobot::addUpLegHP()
     int total = 0;
     for(int i=0; i<3; i++)
     {
-        total = total + rightLegs[i].getHP();
+        total = total + rightLegs[i]->getHP();
     }
 
     for(int i=0; i<3; i++)
     {
-        total = total + leftLegs[i].getHP();
+        total = total + leftLegs[i]->getHP();
     }
 
     return total;
