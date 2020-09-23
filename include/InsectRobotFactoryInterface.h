@@ -1,7 +1,6 @@
 #ifndef INSECTROBOTFACTORYINTERFACE_H
 #define INSECTROBOTFACTORYINTERFACE_H
 
-#include <Robot.h>
 #include <InsectRobot.h>
 #include <InsectPartFactoryInterface.h>
 
@@ -12,7 +11,7 @@ class InsectRobotFactoryInterface
 
         virtual ~InsectRobotFactoryInterface();
 
-        virtual Robot* manufacture(InsectPartFactoryInterface* insectPartFactory) = 0;
+        virtual InsectRobot* manufacture(InsectPartFactoryInterface* insectPartFactory) = 0;
     protected:
     private:
 };

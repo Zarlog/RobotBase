@@ -10,7 +10,7 @@ InsectRobotFactory::~InsectRobotFactory()
     //dtor
 }
 
-Robot* InsectRobotFactory::manufacture(InsectPartFactoryInterface* insectPartFactory)
+InsectRobot* InsectRobotFactory::manufacture(InsectPartFactoryInterface* insectPartFactory)
 {
     InsectRobot* iRobot = new InsectRobot();
     std::unique_ptr<InsectHead> iHead = insectPartFactory->createInsectHead();
